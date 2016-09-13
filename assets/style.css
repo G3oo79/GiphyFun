@@ -1,0 +1,39 @@
+body {
+	background-color: blue;
+	
+}
+
+.jumbotron {
+	background-image: url(https://images4.alphacoders.com/279/279284.jpg);
+
+}
+
+strong {
+	color: #D84315;
+	font-family: 'Sigmar One';
+	text-shadow: 4px 4px 4px #CFD8DC;
+	font-size: 100px;
+}
+ #imgcont {
+
+ }
+
+ #submitbutton {
+ 	 padding: 10px 20px;
+	 font-size: 15px;
+	 text-align: center;
+	 cursor: pointer;
+	 outline: none;
+	 color: #fff;
+	 background-color: #4CAF50;
+	 border: none;
+	 border-radius: 15px;
+	 box-shadow: 0 9px #999;
+}
+
+#submitbutton:hover {background-color: #3e8e41}
+
+#submitbutton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
