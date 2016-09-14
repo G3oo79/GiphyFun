@@ -43,9 +43,26 @@ function renderButtons() {
 		//making sure it is working :).
 		/*console.log(b.text());*/
 
-
 	}
+
+	
 }
+$(document).on('click','.setimage', function() {
+	
+	var setImage = $(this).attr('data-move');
+		console.log(setImage);
+	$(this).attr('src', setImage);
+
+	if (setImage == 'data-still') {
+		/*$(this).attr('src', $(this).data('move'));*/
+        $(this).attr('data-move');
+	}else{		
+		/*$(this).attr('src', $(this).data('still'));*/
+        $(this).attr('data-still');
+        console.log(setImage);
+	}
+
+})
 //Sets the function click to id submitbutton.
 $('#submitbutton').on('click', function() {
 	//returns the value of id to wordInput?.
@@ -56,15 +73,12 @@ $('#submitbutton').on('click', function() {
 	renderButtons();
 	//this stops the function.
 	return false;
-	
-	var state = $(this).attr('data-image');
-
-		if (state == 'original_still') {
-			 $(this).attr('src', $(this).data('animate'));
-		}
 
 
 })
+
+//add function: first set an id for the href image. use "this"
+
 //in the document when red button clicked run gifDisplay function 
 $(document).on('click', '.btn-danger', gifDisplay);
 //Sets the gif display function
@@ -72,7 +86,7 @@ function gifDisplay() {
 	//create new variable to and assigns the attribute
 	var searchName = $(this).attr('data-gaming');
 	//assingns the api from to queryUrl and adds it to the searchname variable.
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q="+ searchName +"&api_key=dc6zaTOxFJmzC&limit=15";
+	var queryURL = "http://api.giphy.com/v1/gifs/search?q="+ searchName +"tag=gaming&api_key=dc6zaTOxFJmzC&limit=15";
 	console.log(queryURL);
 	//Requests json file to be used
 	$.ajax({
@@ -85,12 +99,16 @@ function gifDisplay() {
 		//loop for the response 
 		for (var i = 0; i < response.data.length; i++) {
 			//crate new variable and asign the tag img
-			var newPic = $('<img>');
-			var p = $('<p>').text(" Rating: " + response.data[i].rating);
-			newPic.attr('src', response.data[i].images.fixed_height.url);
+			var newPic = $('<img class="setimage">');
+			var p = $(' <p> ').text(" Rating: " + response.data[i].rating);
+
+			newPic.attr('src', response.data[i].images.fixed_height_still.url);
+			newPic.attr('data-still', response.data[i].images.fixed_height_still.url);
+			newPic.attr('data-move', response.data[i].images.fixed_height.url);
+
 			/*$(".images").append(p);*/
 			$(".images").append(newPic);
-			console.log(response);
+			/*console.log(response);*/
 
 			
 		}

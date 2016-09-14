@@ -1,5 +1,5 @@
 body {
-	background-color: blue;
+	background-image: url(http://bdwhw.com/images/1/background-image-in-html/background-image-in-html-05.jpg);
 	
 }
 
@@ -25,15 +25,24 @@ strong {
 	 cursor: pointer;
 	 outline: none;
 	 color: #fff;
-	 background-color: #4CAF50;
+	 background-color: #D84315;
 	 border: none;
-	 border-radius: 15px;
-	 box-shadow: 0 9px #999;
+	 border-radius: 10px;
+	 box-shadow: 0 9px #CFD8DC;
 }
 
-#submitbutton:hover {background-color: #3e8e41}
+#submitbutton:hover {background-color: black;}
 
 #submitbutton:active {
-  background-color: #3e8e41;
-  box-shadow: 0 5px #666;
+	color: black;
+  background-color: #CFD8DC;
+  box-shadow: 0 5px #D84315;
   transform: translateY(4px);
+}
+
+#wordsearch {
+	font-size: 50px;
+	color: red;
+	font-family: 'Tangerine';
+	text-shadow: 4px 4px 4px #CFD8DC;
+}
