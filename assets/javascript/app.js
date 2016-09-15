@@ -88,7 +88,7 @@ function gifDisplay() {
 	//create new variable to and assigns the attribute
 	var searchName = $(this).attr('data-gaming');
 	//assingns the api from to queryUrl and adds it to the searchname variable.
-	var queryURL = "https://crossorigin.me/http://api.giphy.com/v1/gifs/search?q="+ searchName +"&api_key=dc6zaTOxFJmzC&limit=15";
+	var queryURL = "http://api.giphy.com/v1/gifs/search?q="+ searchName +"&api_key=dc6zaTOxFJmzC&limit=15";
 	console.log(queryURL);
 	//Requests json file to be used
 	$.ajax({
