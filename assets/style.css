@@ -31,7 +31,9 @@ strong {
 	 box-shadow: 0 9px #CFD8DC;
 }
 
-#submitbutton:hover {background-color: black;}
+#submitbutton:hover {
+	background-color: black;
+}
 
 #submitbutton:active {
 	color: black;
@@ -45,4 +47,7 @@ strong {
 	color: red;
 	font-family: 'Tangerine';
 	text-shadow: 4px 4px 4px #CFD8DC;
+}
+.btn {
+	box-shadow: 0 5px #CFD8DC;
 }

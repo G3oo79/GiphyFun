@@ -23,7 +23,7 @@ $(document).ready(function(){
 // appends to HTML container
 
 //word option array
-var topicsArray = ["gears of war", "final fantasy", "duck hunt"];
+var topicsArray = ["gears of war", "final fantasy", "duck hunt", "street fighter"];
 //function for button presses.
 function renderButtons() {
 	//It clears button when pressed.
@@ -47,18 +47,20 @@ function renderButtons() {
 
 	
 }
+//button click event for the still images
 $(document).on('click','.setimage', function() {
-	
-	var setImage = $(this).attr('data-move');
+	//Assigning this attr method to setImage.
+	var setImage = $(this).attr('data-still');
+	//assigning this src attr to omgClicked
+	var imgClicked = $(this).attr('src');
 		console.log(setImage);
-	$(this).attr('src', setImage);
-
-	if (setImage == 'data-still') {
-		/*$(this).attr('src', $(this).data('move'));*/
-        $(this).attr('data-move');
+	// statment to toggle between still and move image
+	if (imgClicked == setImage) {
+		setImage = $(this).attr('data-move');
+        $(this).attr('src', setImage);
 	}else{		
-		/*$(this).attr('src', $(this).data('still'));*/
-        $(this).attr('data-still');
+		setImage = $(this).attr('data-still');
+        $(this).attr('src', setImage);
         console.log(setImage);
 	}
 
@@ -86,7 +88,7 @@ function gifDisplay() {
 	//create new variable to and assigns the attribute
 	var searchName = $(this).attr('data-gaming');
 	//assingns the api from to queryUrl and adds it to the searchname variable.
-	var queryURL = "http://api.giphy.com/v1/gifs/search?q="+ searchName +"tag=gaming&api_key=dc6zaTOxFJmzC&limit=15";
+	var queryURL = "http://api.giphy.com/v1/gifs/search?q="+ searchName +"&api_key=dc6zaTOxFJmzC&limit=15";
 	console.log(queryURL);
 	//Requests json file to be used
 	$.ajax({
@@ -96,18 +98,20 @@ function gifDisplay() {
 	}).done(function(response){
 		// empties the image container.
 		$('.images').empty();
-		//loop for the response 
+		//loop for the response.data 
 		for (var i = 0; i < response.data.length; i++) {
 			//crate new variable and asign the tag img
 			var newPic = $('<img class="setimage">');
+			//we created a paragraph tag and added the text rating to it
 			var p = $(' <p> ').text(" Rating: " + response.data[i].rating);
-
+			//this is to change the rating text color to white
+			 $(p).css("color", "white");
+			//Created some attriv methos.
 			newPic.attr('src', response.data[i].images.fixed_height_still.url);
 			newPic.attr('data-still', response.data[i].images.fixed_height_still.url);
 			newPic.attr('data-move', response.data[i].images.fixed_height.url);
-
-			/*$(".images").append(p);*/
-			$(".images").append(newPic);
+			//appended all tthe images and ratings.
+			$(".images").append(newPic, p);
 			/*console.log(response);*/
 
 			
