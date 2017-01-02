@@ -1,5 +1,7 @@
 body {
-	background-image: url(http://www.blended-html.com/background-images/bi-html-background.png);
+	background-image: url(http://hotemailtemplates.com/templates/Free/wallpapers/1680x1050/Glowing%20Background.jpg);
+	width: 100%;
+	
 	
 }
 
@@ -15,9 +17,10 @@ strong {
 	font-size: 100px;
 }
  #imgcont {
+ 	/*margin-left: 400px;*/
 
  }
-
+ 
  #submitbutton {
  	 padding: 10px 20px;
 	 font-size: 15px;
@@ -50,4 +53,11 @@ strong {
 }
 .btn {
 	box-shadow: 0 5px #CFD8DC;
+}
+
+p {
+	font-size: 30px;
+	width: 200px;
+	height: 50px;
+	
 }

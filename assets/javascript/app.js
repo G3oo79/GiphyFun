@@ -65,7 +65,7 @@ $(document).on('click','.setimage', function() {
 	}
 
 })
-//Sets the function click to id submitbutton.
+//Sets the function click to id submit button.
 $('#submitbutton').on('click', function() {
 	//returns the value of id to wordInput?.
 	var wordInput = $('#userinput').val();
@@ -88,7 +88,7 @@ function gifDisplay() {
 	//create new variable to and assigns the attribute
 	var searchName = $(this).attr('data-gaming');
 	//assingns the api from to queryUrl and adds it to the searchname variable.
-	var queryURL = "https://api.giphy.com/v1/gifs/search?q="+ searchName +"&api_key=dc6zaTOxFJmzC&limit=15";
+	var queryURL = "https://api.giphy.com/v1/gifs/search?q="+ searchName +"&api_key=dc6zaTOxFJmzC&limit=5";
 	console.log(queryURL);
 	//Requests json file to be used
 	$.ajax({
@@ -111,7 +111,7 @@ function gifDisplay() {
 			newPic.attr('data-still', response.data[i].images.fixed_height_still.url);
 			newPic.attr('data-move', response.data[i].images.fixed_height.url);
 			//appended all tthe images and ratings.
-			$(".images").append(newPic, p);
+			$(".images").append(p, newPic);
 			/*console.log(response);*/
 
 			
